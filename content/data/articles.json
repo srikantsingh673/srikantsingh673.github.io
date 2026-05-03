@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Building a Production-Ready RAG System in Python: Beyond the Tutorial",
+    "excerpt": "Most RAG tutorials get you to a working demo in 50 lines. This article covers what comes next — chunking strategies, retrieval quality, reranking, latency budgets, and the failure modes nobody warns you about.",
+    "date": "2025-03-10",
+    "tags": ["RAG", "NLP", "FastAPI", "Python"],
+    "file": "content/articles/production-rag.md"
+  },
+  {
+    "title": "Django vs FastAPI: A Practical Decision Framework",
+    "excerpt": "Both Django and FastAPI are excellent Python web frameworks, but they optimise for different things. Here is the framework I use to choose between them based on the specific constraints of each project.",
+    "date": "2025-01-18",
+    "tags": ["Django", "FastAPI", "Backend", "Python"],
+    "file": "content/articles/django-vs-fastapi.md"
+  }
+]

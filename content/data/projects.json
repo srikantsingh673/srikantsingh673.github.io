@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Multilingual NLP Pipeline",
+    "excerpt": "A production-grade NLP pipeline supporting 12+ languages with custom tokenisation, named-entity recognition, and transformer-based classification — served via FastAPI with Redis caching.",
+    "date": "Aug 2024",
+    "stack": ["Python", "FastAPI", "HuggingFace", "Redis", "Docker"],
+    "status": "Production",
+    "image": "assets/images/project-nlp.svg",
+    "file": "content/projects/nlp-pipeline.md",
+    "github": "https://github.com/srikant-siddhiyoga/multilingual-nlp-pipeline"
+  },
+  {
+    "title": "Distributed Task Engine",
+    "excerpt": "An event-driven microservices system built with Django, Celery, and RabbitMQ — handling 50k+ daily background tasks with full observability via Prometheus and Grafana.",
+    "date": "Apr 2024",
+    "stack": ["Django", "Celery", "RabbitMQ", "Docker", "PostgreSQL"],
+    "status": "Production",
+    "image": "assets/images/project-microservices.svg",
+    "file": "content/projects/task-engine.md",
+    "github": "https://github.com/srikant-siddhiyoga/distributed-task-engine"
+  },
+  {
+    "title": "RAG-Powered Knowledge Base",
+    "excerpt": "A Retrieval-Augmented Generation system that indexes internal documentation and answers developer queries using sentence embeddings, FAISS, and an LLM backend — reducing search time by 70%.",
+    "date": "Jan 2025",
+    "stack": ["FastAPI", "FAISS", "LangChain", "Claude API", "Docker"],
+    "status": "Production",
+    "image": "assets/images/project-ai.svg",
+    "file": "content/projects/rag-knowledge-base.md",
+    "github": "https://github.com/srikant-siddhiyoga/rag-knowledge-base"
+  }
+]

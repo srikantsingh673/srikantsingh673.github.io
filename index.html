@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srikant — Developer & Researcher</title>
+  <meta name="description" content="Software developer and researcher specialising in Python, NLP, AI and system design.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- Prism (syntax highlighting) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body data-page="home">
+
+<div id="sidebar-root"></div>
+
+<main class="main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero__eyebrow">Software Developer & Researcher</p>
+    <h1 class="hero__title">
+      <strong>Building systems.</strong><br>
+      Publishing research.<br>
+      <strong>Writing code.</strong>
+    </h1>
+    <p class="hero__sub">
+      I work at the intersection of backend engineering, Integration, and applied AI—designing scalable systems and deploying research that delivers real-world impact.
+    </p>
+    <div class="hero__tags">
+      <span class="hero__tag">Architecture · System Design</span>
+      <span class="hero__tag">Python</span>
+      <span class="hero__tag">Django · FastAPI · Flask</span>
+      <span class="hero__tag">API · System Integration</span>
+      <span class="hero__tag">NLP · Transformers · RAG</span>
+      <span class="hero__tag">Linux · Docker</span>
+      <span class="hero__tag">Data Analysis · Reporting</span>
+    </div>
+    <div class="hero__cta">
+      <a href="projects.html"  class="btn btn-primary">View Projects</a>
+      <a href="research.html"  class="btn btn-ghost">Research & Articles</a>
+      <a href="about.html"     class="btn btn-ghost">About Me</a>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section sr">
+    <div class="section__header">
+      <span class="section__title">Featured Projects</span>
+      <a href="projects.html" class="section__more">
+        All projects
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="cards-grid" id="featured-projects">
+      <div class="state-loading"><span class="spinner"></span> Loading projects…</div>
+    </div>
+  </section>
+
+  <!-- Featured Research -->
+  <section class="section sr">
+    <div class="section__header">
+      <span class="section__title">Recent Research</span>
+      <a href="research.html" class="section__more">
+        All publications
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div id="featured-research">
+      <div class="state-loading"><span class="spinner"></span> Loading…</div>
+    </div>
+  </section>
+
+  <!-- Featured Articles -->
+  <section class="section sr">
+    <div class="section__header">
+      <span class="section__title">Latest Articles</span>
+      <a href="research.html" class="section__more">
+        All articles
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="article-list" id="featured-articles">
+      <div class="state-loading"><span class="spinner"></span> Loading…</div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="assets/js/sidebar.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
