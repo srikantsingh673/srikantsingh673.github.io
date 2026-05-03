@@ -1,32 +1,120 @@
 [
   {
-    "title": "Multilingual NLP Pipeline",
-    "excerpt": "A production-grade NLP pipeline supporting 12+ languages with custom tokenisation, named-entity recognition, and transformer-based classification — served via FastAPI with Redis caching.",
-    "date": "Aug 2024",
-    "stack": ["Python", "FastAPI", "HuggingFace", "Redis", "Docker"],
+    "title": "Multilingual Video Dubbing Platform",
+    "excerpt": "Multilingual speech pipeline for ASR, duration-aware translation, and neural voice cloning.",
+    "date": "2026",
+    "stack": [
+      "Python",
+      "FastAPI",
+      "Transformers",
+      "Whisper",
+      "ffmpeg",
+      "ollama"
+    ],
     "status": "Production",
     "image": "assets/images/project-nlp.svg",
-    "file": "content/projects/nlp-pipeline.md",
+    "file": "content/projects/multilingual-dubbing.md",
     "github": "https://github.com/srikant-siddhiyoga/multilingual-nlp-pipeline"
   },
   {
-    "title": "Distributed Task Engine",
-    "excerpt": "An event-driven microservices system built with Django, Celery, and RabbitMQ — handling 50k+ daily background tasks with full observability via Prometheus and Grafana.",
-    "date": "Apr 2024",
-    "stack": ["Django", "Celery", "RabbitMQ", "Docker", "PostgreSQL"],
+    "title": "WhatsApp Automation & Engagement Platform",
+    "excerpt": "A microservices-based platform for automating WhatsApp interactions, including scheduled messaging, user segmentation, and analytics dashboards.",
+    "date": "2025",
+    "stack": [
+      "Django",
+      "Celery",
+      "Redis",
+      "WhatsApp Cloud API",
+      "PostgreSQL"
+    ],
     "status": "Production",
     "image": "assets/images/project-microservices.svg",
-    "file": "content/projects/task-engine.md",
-    "github": "https://github.com/srikant-siddhiyoga/distributed-task-engine"
+    "file": "content/projects/whatsapp-automation.md",
+    "github": "https://github.com/srikant-siddhiyoga/whatsapp-automation"
   },
   {
-    "title": "RAG-Powered Knowledge Base",
-    "excerpt": "A Retrieval-Augmented Generation system that indexes internal documentation and answers developer queries using sentence embeddings, FAISS, and an LLM backend — reducing search time by 70%.",
-    "date": "Jan 2025",
-    "stack": ["FastAPI", "FAISS", "LangChain", "Claude API", "Docker"],
+    "title": "RAG-Powered Knowledge Base Chatbot",
+    "excerpt": "A Retrieval-Augmented Generation chatbot that integrates Claude (Haiku) with ChromaDB and Redis to provide accurate and context-aware responses from a custom knowledge base.",
+    "date": "2026",
+    "stack": [
+      "FastAPI",
+      "Claude (Haiku)",
+      "ChromaDB",
+      "Redis",
+      "NLP",
+      "RAG",
+      "Docker"
+    ],
     "status": "Production",
     "image": "assets/images/project-ai.svg",
     "file": "content/projects/rag-knowledge-base.md",
     "github": "https://github.com/srikant-siddhiyoga/rag-knowledge-base"
+  },
+  {
+    "title": "StreamVeda: Youtube Video Streaming Platform",
+    "excerpt": "A YouTube stream scheduling and content management platform to automate publishing and content operations for multiple YouTube channels.",
+    "date": "2025",
+    "stack": [
+      "Django",
+      "Celery",
+      "Redis",
+      "PostgreSQL",
+      "YoutubeV3 API",
+      "ffmpeg"
+    ],
+    "status": "Production",
+    "image": "assets/images/project-ai.svg",
+    "file": "content/projects/streamveda.md",
+    "github": "https://github.com/srikant-siddhiyoga/streamveda"
+  },
+  {
+    "title": "Meetly: Video Confrencing & Appointment Booking Platform",
+    "excerpt": "A video conferencing and appointment booking platform that integrates with Jitsi Meet for seamless virtual meetings with automatic attendance tracking and conference recording.",
+    "date": "2025",
+    "stack": [
+      "Django",
+      "ffmpeg",
+      "Jitsi meet Integration",
+      "Celery",
+      "Redis",
+      "PostgreSQL"
+    ],
+    "status": "Production",
+    "image": "assets/images/project-ai.svg",
+    "file": "content/projects/meetly.md",
+    "github": "https://github.com/srikant-siddhiyoga/meetly"
+  },
+  {
+    "title": "AutoDB Backup: Automated Database Backup System",
+    "excerpt": "An automated database backup microservice that ensures data integrity and recovery for various database management systems.",
+    "date": "2024",
+    "stack": [
+      "Python",
+      "ffmpeg",
+      "Celery",
+      "Mysql",
+      "PostgreSQL"
+    ],
+    "status": "Production",
+    "image": "assets/images/project-ai.svg",
+    "file": "content/projects/autodb-backup.md",
+    "github": "https://github.com/srikant-siddhiyoga/autodb-backup"
+  },
+  {
+    "title": "Zonse Algo: Automated Database Backup System",
+    "excerpt": "Online Trading & market Simulation platform with real-time market data, algorithmic trading capabilities, and performance analytics.",
+    "date": "2024",
+    "stack": [
+      "django",
+      "ICICI Bank API",
+      "Kotak Bank API",
+      "WebSockets",
+      "Algorithmic Trading",
+      "Mysql"
+    ],
+    "status": "Staging",
+    "image": "assets/images/project-ai.svg",
+    "file": "content/projects/zonse-algo.md",
+    "github": "https://github.com/srikant-siddhiyoga/zonse-algo"
   }
 ]

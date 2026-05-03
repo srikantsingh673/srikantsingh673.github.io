@@ -7,11 +7,11 @@
 /* ── Sidebar toggle (mobile) ──────────────────────────────── */
 function initSidebar() {
   const hamburger = document.getElementById('hamburger');
-  const sidebar   = document.getElementById('sidebar');
-  const overlay   = document.getElementById('sidebar-overlay');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
   if (!hamburger) return;
 
-  function open()  { sidebar.classList.add('open');    overlay.classList.add('visible');    hamburger.classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function open() { sidebar.classList.add('open'); overlay.classList.add('visible'); hamburger.classList.add('open'); document.body.style.overflow = 'hidden'; }
   function close() { sidebar.classList.remove('open'); overlay.classList.remove('visible'); hamburger.classList.remove('open'); document.body.style.overflow = ''; }
 
   hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
@@ -65,7 +65,7 @@ function initProgressBar() {
   const bar = document.getElementById('progress-bar');
   if (!bar) return;
   function update() {
-    const h  = document.documentElement;
+    const h = document.documentElement;
     const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) || 0;
     bar.style.transform = `scaleX(${pct})`;
   }
@@ -150,7 +150,7 @@ async function renderMarkdown(raw, targetEl) {
       breaks: false,
       highlight: (code, lang) => {
         if (window.Prism && lang && Prism.languages[lang]) {
-          try { return Prism.highlight(code, Prism.languages[lang], lang); } catch {}
+          try { return Prism.highlight(code, Prism.languages[lang], lang); } catch { }
         }
         return code;
       }
@@ -159,7 +159,7 @@ async function renderMarkdown(raw, targetEl) {
     // Pre-process: protect LaTeX blocks before marked parses
     let processed = body
       .replace(/\$\$([^$]+)\$\$/g, (_, m) => `<katex-block>${m}</katex-block>`)
-      .replace(/\$([^$\n]+)\$/g,   (_, m) => `<katex-inline>${m}</katex-inline>`);
+      .replace(/\$([^$\n]+)\$/g, (_, m) => `<katex-inline>${m}</katex-inline>`);
 
     let html = marked.parse(processed);
 
@@ -190,19 +190,19 @@ async function renderMarkdown(raw, targetEl) {
 /* ── Load a content file and render post page ─────────────── */
 async function loadPost() {
   const params = new URLSearchParams(window.location.search);
-  const src    = params.get('src');   // e.g. content/projects/nlp-pipeline.md
-  const type   = params.get('type');  // project | article | research
+  const src = params.get('src');   // e.g. content/projects/nlp-pipeline.md
+  const type = params.get('type');  // project | article | research
 
-  const titleEl   = document.getElementById('post-title');
-  const metaEl    = document.getElementById('post-meta');
-  const proseEl   = document.getElementById('prose');
-  const tocEl     = document.getElementById('toc');
+  const titleEl = document.getElementById('post-title');
+  const metaEl = document.getElementById('post-meta');
+  const proseEl = document.getElementById('prose');
+  const tocEl = document.getElementById('toc');
   const loadingEl = document.getElementById('post-loading');
 
   if (!src || !proseEl) return;
 
   try {
-    const res  = await fetch(src);
+    const res = await fetch(src);
     if (!res.ok) throw new Error('Not found');
     const text = await res.text();
     const meta = await renderMarkdown(text, proseEl);
@@ -215,10 +215,10 @@ async function loadPost() {
     // Build meta bar
     if (metaEl && meta) {
       const items = [];
-      if (meta.date)  items.push(`<span class="post-meta__item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="13" rx="2"/><path d="M1 6h14M5 1v2M11 1v2"/></svg>${meta.date}</span>`);
+      if (meta.date) items.push(`<span class="post-meta__item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="13" rx="2"/><path d="M1 6h14M5 1v2M11 1v2"/></svg>${meta.date}</span>`);
       if (meta.venue) items.push(`<span class="post-meta__item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h12v10H2z"/><path d="M5 8h6M5 5h4"/></svg>${meta.venue}</span>`);
       if (meta.status) {
-        const cls = { published:'tag-green', review:'tag-amber', preprint:'tag-blue' }[meta.status] || '';
+        const cls = { published: 'tag-green', review: 'tag-amber', preprint: 'tag-blue' }[meta.status] || '';
         items.push(`<span class="tag ${cls}">${meta.status}</span>`);
       }
       if (meta.github) items.push(`<a href="${meta.github}" target="_blank" class="btn btn-outline" style="font-size:0.75rem;padding:0.3em 0.85em;">GitHub ↗</a>`);
@@ -254,7 +254,7 @@ async function loadListing(jsonPath, renderFn, containerId) {
   if (!el) return;
 
   try {
-    const res  = await fetch(jsonPath);
+    const res = await fetch(jsonPath);
     if (!res.ok) throw new Error();
     const data = await res.json();
     el.innerHTML = '';
@@ -275,8 +275,9 @@ function renderProjectCards(items, el) {
       </div>
       <div class="card__body">
         <div class="card__stack">
-          ${(p.stack || []).slice(0,4).map(s => `<span class="tag tag-mono">${s}</span>`).join('')}
+          ${(p.stack || []).slice(0, 4).map(s => `<span class="tag tag-mono">${s}</span>`).join('')}
           ${p.status === 'Production' ? '<span class="tag tag-green">Production</span>' : ''}
+          ${p.status === 'Staging' ? '<span class="tag tag-amber">Staging</span>' : ''}
         </div>
         <div class="card__title">${p.title}</div>
         <div class="card__excerpt">${p.excerpt}</div>
@@ -296,7 +297,7 @@ function renderArticleList(items, el) {
   items.forEach(a => {
     const d = new Date(a.date || '');
     const month = d.toLocaleString('en', { month: 'short' }).toUpperCase();
-    const day   = isNaN(d) ? '' : d.getDate();
+    const day = isNaN(d) ? '' : d.getDate();
     el.innerHTML += `
     <a href="post.html?src=${a.file}&type=article" class="article-item sr" style="text-decoration:none;">
       <div class="article-item__date">
@@ -316,7 +317,7 @@ function renderArticleList(items, el) {
 
 function renderResearchList(items, el) {
   items.forEach(r => {
-    const badgeClass = { published:'published', review:'review', preprint:'preprint' }[r.status] || 'review';
+    const badgeClass = { published: 'published', review: 'review', preprint: 'preprint' }[r.status] || 'review';
     el.innerHTML += `
     <div class="research-item sr" onclick="location.href='post.html?src=${r.file}&type=research'">
       <div class="research-item__header">
@@ -343,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Page-specific loaders
   const page = document.body.dataset.page;
 
-  if (page === 'post')     loadPost();
+  if (page === 'post') loadPost();
   if (page === 'projects') loadListing('content/data/projects.json', renderProjectCards, 'projects-list');
   if (page === 'research-articles') {
     loadListing('content/data/research.json', renderResearchList, 'research-list');
@@ -351,8 +352,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (page === 'home') {
-    loadListing('content/data/projects.json',  (d, el) => renderProjectCards(d.slice(0,3), el), 'featured-projects');
-    loadListing('content/data/articles.json',  (d, el) => renderArticleList(d.slice(0,3),  el), 'featured-articles');
-    loadListing('content/data/research.json',  (d, el) => renderResearchList(d.slice(0,2), el), 'featured-research');
+    loadListing('content/data/projects.json', (d, el) => renderProjectCards(d.slice(0, 3), el), 'featured-projects');
+    loadListing('content/data/articles.json', (d, el) => renderArticleList(d.slice(0, 3), el), 'featured-articles');
+    loadListing('content/data/research.json', (d, el) => renderResearchList(d.slice(0, 2), el), 'featured-research');
   }
 });
