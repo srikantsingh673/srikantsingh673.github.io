@@ -1568,7 +1568,8 @@ button {
   .sidebar {
     transform: translateX(-100%);
     transition: transform var(--t);
-    top: 0;
+    top: 42px;
+    height: calc(100vh - 42px);
   }
 
   .sidebar.open {
