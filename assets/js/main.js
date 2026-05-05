@@ -23,32 +23,11 @@ function initSidebar() {
 function initActiveNav() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__link').forEach(link => {
+    link.classList.remove('active');
     const href = link.getAttribute('href')?.split('/').pop();
     if (href === current || (current === '' && href === 'index.html')) {
       link.classList.add('active');
     }
-  });
-}
-
-/* ── Page fade-in ─────────────────────────────────────────── */
-function initPageFade() {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.25s ease';
-  requestAnimationFrame(() => { document.body.style.opacity = '1'; });
-
-  // Restore opacity when browser restores page from bfcache (back button)
-  window.addEventListener('pageshow', e => {
-    if (e.persisted) document.body.style.opacity = '1';
-  });
-
-  document.addEventListener('click', e => {
-    const a = e.target.closest('a[href]');
-    if (!a) return;
-    const href = a.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('javascript') || a.target === '_blank') return;
-    e.preventDefault();
-    document.body.style.opacity = '0';
-    setTimeout(() => { window.location.href = href; }, 220);
   });
 }
 
@@ -333,27 +312,63 @@ function renderResearchList(items, el) {
   });
 }
 
-/* ── Init ─────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-  initSidebar();
-  initActiveNav();
-  initPageFade();
-  initScrollReveal();
+/* ── Contact form handler (used by about.html) ────────────── */
+window.handleContact = async function handleContact(e) {
+  e.preventDefault();
+  const form = document.getElementById('contact-form');
+  const btn  = document.getElementById('cf-btn');
+  const status = document.getElementById('cf-status');
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  status.textContent = '';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      status.textContent = 'Message sent! Excited to connect with you.';
+      status.style.color = 'var(--green)';
+      form.reset();
+    } else {
+      throw new Error();
+    }
+  } catch {
+    status.textContent = 'Something went wrong. Email me directly at srikantsingh673@gmail.com';
+    status.style.color = 'var(--amber)';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+    setTimeout(() => { status.textContent = ''; }, 6000);
+  }
+};
+
+/* ── Page-specific init (called on first load + Barba transitions) ── */
+window.initPage = function initPage(namespace) {
   initProgressBar();
 
-  // Page-specific loaders
-  const page = document.body.dataset.page;
-
-  if (page === 'post') loadPost();
-  if (page === 'projects') loadListing('content/data/projects.json', renderProjectCards, 'projects-list');
-  if (page === 'research-articles') {
+  if (namespace === 'post') loadPost();
+  if (namespace === 'projects') loadListing('content/data/projects.json', renderProjectCards, 'projects-list');
+  if (namespace === 'research-articles') {
     loadListing('content/data/research.json', renderResearchList, 'research-list');
     loadListing('content/data/articles.json', renderArticleList, 'articles-list');
   }
-
-  if (page === 'home') {
+  if (namespace === 'home') {
     loadListing('content/data/projects.json', (d, el) => renderProjectCards(d.slice(0, 3), el), 'featured-projects');
     loadListing('content/data/articles.json', (d, el) => renderArticleList(d.slice(0, 3), el), 'featured-articles');
     loadListing('content/data/research.json', (d, el) => renderResearchList(d.slice(0, 2), el), 'featured-research');
   }
+};
+
+/* ── Init ─────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  initSidebar();
+  initActiveNav();
+  initScrollReveal();
+
+  const ns = document.querySelector('[data-barba="container"]')?.dataset.barbaNamespace;
+  if (ns) window.initPage(ns);
 });

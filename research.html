@@ -12,7 +12,8 @@
 
 <div id="sidebar-root"></div>
 
-<main class="main">
+<div data-barba="wrapper">
+<main class="main" data-barba="container" data-barba-namespace="research-articles">
   <div class="page-header">
     <div class="page-header__eyebrow">Publications & Writing</div>
     <h1 class="page-header__title">Research & Articles</h1>
@@ -48,7 +49,9 @@
     <span class="site-footer__copy">© 2025 Srikant Singh</span>
   </footer>
 </main>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
@@ -56,5 +59,6 @@
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
 <script src="assets/js/sidebar.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/barba-init.js"></script>
 </body>
 </html>

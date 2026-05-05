@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Srikant</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
 </head>
 
 <body data-page="about">
 
   <div id="sidebar-root"></div>
 
-  <main class="main">
+  <div data-barba="wrapper">
+  <main class="main" data-barba="container" data-barba-namespace="about">
     <div class="page-header">
       <div class="page-header__eyebrow">About & Contact</div>
       <h1 class="page-header__title">Srikant Singh</h1>
@@ -358,45 +361,17 @@
       <span class="site-footer__copy">© 2025 Srikant Singh</span>
     </footer>
   </main>
+  </div>
 
-  <script>
-    async function handleContact(e) {
-      e.preventDefault();
-      const form = document.getElementById('contact-form');
-      const btn = document.getElementById('cf-btn');
-      const status = document.getElementById('cf-status');
-
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      status.textContent = '';
-
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          status.textContent = 'Message sent! Excited to connect with you.';
-          status.style.color = 'var(--green)';
-          form.reset();
-        } else {
-          throw new Error();
-        }
-      } catch {
-        status.textContent = 'Something went wrong. Email me directly at srikantsingh673@gmail.com';
-        status.style.color = 'var(--amber)';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Send Message';
-        setTimeout(() => { status.textContent = ''; }, 6000);
-      }
-    }
-  </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
   <script src="assets/js/sidebar.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/barba-init.js"></script>
 </body>
 
 </html>
