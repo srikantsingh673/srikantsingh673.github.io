@@ -4,7 +4,7 @@ const SIDEBAR_HTML = `
   <div class="sidebar__header">
     <div class="sidebar__avatar">S</div>
     <div class="sidebar__name">Srikant Singh</div>
-    <div class="sidebar__tagline">Software Developer &amp; Researcher · Python · NLP · AI</div>
+    <div class="sidebar__tagline">Software Developer &amp; Researcher · Python · AI</div>
   </div>
 
   <nav class="sidebar__nav">
