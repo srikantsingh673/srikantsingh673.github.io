@@ -45,7 +45,7 @@ const SIDEBAR_HTML = `
     </a>
   </div>
 
-  <div class="sidebar__footer">© 2025 Srikant</div>
+  <div class="sidebar__footer">© 2026 Srikant</div>
 </aside>
 
 <div class="sidebar-overlay" id="sidebar-overlay"></div>

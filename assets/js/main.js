@@ -17,6 +17,7 @@ function initSidebar() {
   hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
   overlay.addEventListener('click', close);
   document.addEventListener('keydown', e => e.key === 'Escape' && close());
+  sidebar.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', close));
 }
 
 /* ── Active nav link ──────────────────────────────────────── */
