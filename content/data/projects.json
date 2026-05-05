@@ -42,8 +42,7 @@
       "ChromaDB",
       "Redis",
       "NLP",
-      "RAG",
-      "Docker"
+      "RAG"
     ],
     "status": "Production",
     "image": "assets/images/project-ai.svg",
@@ -68,13 +67,13 @@
     "github": "https://github.com/srikant-siddhiyoga/streamveda"
   },
   {
-    "title": "Meetly: Video Confrencing & Appointment Booking Platform",
+    "title": "Meetly: Video Conferencing & Appointment Booking Platform",
     "excerpt": "A video conferencing and appointment booking platform that integrates with Jitsi Meet for seamless virtual meetings with automatic attendance tracking and conference recording.",
     "date": "2025",
     "stack": [
       "Django",
       "ffmpeg",
-      "Jitsi meet Integration",
+      "Jitsi Meet Integration",
       "Celery",
       "Redis",
       "PostgreSQL"
@@ -90,9 +89,8 @@
     "date": "2024",
     "stack": [
       "Python",
-      "ffmpeg",
       "Celery",
-      "Mysql",
+      "MySQL",
       "PostgreSQL"
     ],
     "status": "Production",
@@ -101,16 +99,15 @@
     "github": "https://github.com/srikant-siddhiyoga/autodb-backup"
   },
   {
-    "title": "Zonse Algo: Automated Database Backup System",
-    "excerpt": "Online Trading & market Simulation platform with real-time market data, algorithmic trading capabilities, and performance analytics.",
+    "title": "Zonse Algo: Online Trading & Market Simulation Platform",
+    "excerpt": "Online Trading & Market Simulation platform with real-time market data, algorithmic trading capabilities, and performance analytics.",
     "date": "2024",
     "stack": [
-      "django",
-      "ICICI Bank API",
-      "Kotak Bank API",
+      "Django",
+      "ICICI API",
+      "Kotak API",
       "WebSockets",
-      "Algorithmic Trading",
-      "Mysql"
+      "MySQL"
     ],
     "status": "Staging",
     "image": "assets/images/project-ai.svg",

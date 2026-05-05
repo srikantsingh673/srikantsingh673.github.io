@@ -48,7 +48,7 @@ const SIDEBAR_HTML = `
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <header class="topbar">
-  <a class="topbar__brand" href="index.html">Srikant</a>
+  <a class="topbar__brand" href="index.html">Srikant Singh</a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
