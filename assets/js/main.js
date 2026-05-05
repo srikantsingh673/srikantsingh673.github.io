@@ -40,18 +40,22 @@ function initScrollReveal() {
 }
 
 /* ── Reading progress bar ─────────────────────────────────── */
+let _progressScrollCleanup = null;
 function initProgressBar() {
   const bar = document.getElementById('progress-bar');
   if (!bar) return;
+  if (_progressScrollCleanup) { _progressScrollCleanup(); _progressScrollCleanup = null; }
   function update() {
     const h = document.documentElement;
     const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) || 0;
     bar.style.transform = `scaleX(${pct})`;
   }
   window.addEventListener('scroll', update, { passive: true });
+  _progressScrollCleanup = () => window.removeEventListener('scroll', update);
 }
 
 /* ── TOC builder ──────────────────────────────────────────── */
+let _tocScrollCleanup = null;
 function buildTOC(contentEl, tocEl) {
   if (!contentEl || !tocEl) return;
   const headings = contentEl.querySelectorAll('h2, h3');
@@ -83,18 +87,25 @@ function buildTOC(contentEl, tocEl) {
   tocEl.appendChild(title);
   tocEl.appendChild(list);
 
-  // Highlight active section on scroll
+  // Highlight active section based on scroll position — no dead zones
   const links = tocEl.querySelectorAll('.toc__link');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        const active = tocEl.querySelector(`a[href="#${e.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
+  if (_tocScrollCleanup) { _tocScrollCleanup(); _tocScrollCleanup = null; }
+
+  function updateActive() {
+    let current = null;
+    headings.forEach(h => {
+      if (h.getBoundingClientRect().top <= 120) current = h;
     });
-  }, { rootMargin: '0px 0px -60% 0px' });
-  headings.forEach(h => io.observe(h));
+    links.forEach(l => l.classList.remove('active'));
+    const target = current
+      ? tocEl.querySelector(`a[href="#${current.id}"]`)
+      : links[0];
+    if (target) target.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  _tocScrollCleanup = () => window.removeEventListener('scroll', updateActive);
+  updateActive();
 }
 
 /* ── Front-matter parser ──────────────────────────────────── */
@@ -117,24 +128,14 @@ function parseFrontMatter(raw) {
 }
 
 /* ── Markdown renderer (marked + KaTeX + Prism) ──────────── */
+if (window.marked) marked.setOptions({ gfm: true, breaks: false });
+
 async function renderMarkdown(raw, targetEl) {
   if (!targetEl) return;
 
   const { meta, body } = parseFrontMatter(raw);
 
-  // Configure marked
   if (window.marked) {
-    marked.setOptions({
-      gfm: true,
-      breaks: false,
-      highlight: (code, lang) => {
-        if (window.Prism && lang && Prism.languages[lang]) {
-          try { return Prism.highlight(code, Prism.languages[lang], lang); } catch { }
-        }
-        return code;
-      }
-    });
-
     // Pre-process: protect LaTeX blocks before marked parses
     let processed = body
       .replace(/\$\$([^$]+)\$\$/g, (_, m) => `<katex-block>${m}</katex-block>`)
@@ -178,7 +179,10 @@ async function loadPost() {
   const tocEl = document.getElementById('toc');
   const loadingEl = document.getElementById('post-loading');
 
-  if (!src || !proseEl) return;
+  if (!src || !proseEl) {
+    if (loadingEl) loadingEl.remove();
+    return;
+  }
 
   try {
     const res = await fetch(src);
@@ -246,8 +250,7 @@ async function loadListing(jsonPath, renderFn, containerId) {
 
 /* ── Render helpers ───────────────────────────────────────── */
 function renderProjectCards(items, el) {
-  items.forEach(p => {
-    el.innerHTML += `
+  el.insertAdjacentHTML('beforeend', items.map(p => `
     <a href="post.html?src=${p.file}&type=project" class="card sr" style="text-decoration:none;color:inherit;">
       <div class="card__image">
         <img src="${p.image || 'assets/images/placeholder.svg'}" alt="${p.title}" loading="lazy" onerror="this.parentElement.style.background='var(--bg)'">
@@ -268,16 +271,15 @@ function renderProjectCards(items, el) {
           <span class="card__link">Read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </div>
-    </a>`;
-  });
+    </a>`).join(''));
 }
 
 function renderArticleList(items, el) {
-  items.forEach(a => {
+  el.insertAdjacentHTML('beforeend', items.map(a => {
     const d = new Date(a.date || '');
     const month = d.toLocaleString('en', { month: 'short' }).toUpperCase();
     const day = isNaN(d) ? '' : d.getDate();
-    el.innerHTML += `
+    return `
     <a href="post.html?src=${a.file}&type=article" class="article-item sr" style="text-decoration:none;">
       <div class="article-item__date">
         <div class="article-item__month">${month}</div>
@@ -291,14 +293,14 @@ function renderArticleList(items, el) {
         </div>
       </div>
     </a>`;
-  });
+  }).join(''));
 }
 
 function renderResearchList(items, el) {
-  items.forEach(r => {
+  el.insertAdjacentHTML('beforeend', items.map(r => {
     const badgeClass = { published: 'published', review: 'review', preprint: 'preprint' }[r.status] || 'review';
-    el.innerHTML += `
-    <div class="research-item sr" onclick="location.href='post.html?src=${r.file}&type=research'">
+    return `
+    <a href="post.html?src=${r.file}&type=research" class="research-item sr" style="display:block;text-decoration:none;color:inherit;">
       <div class="research-item__header">
         <span class="research-badge ${badgeClass}">${r.status || 'preprint'}</span>
         <div class="research-item__title">${r.title}</div>
@@ -306,10 +308,10 @@ function renderResearchList(items, el) {
       <div class="research-item__venue">${r.venue || ''}</div>
       <div class="research-item__abstract">${r.abstract}</div>
       <div class="research-item__actions">
-        <a href="post.html?src=${r.file}&type=research" class="btn btn-outline" style="font-size:0.75rem;padding:0.35em 1em;">Read →</a>
+        <span class="btn btn-outline" style="font-size:0.75rem;padding:0.35em 1em;">Read →</span>
       </div>
-    </div>`;
-  });
+    </a>`;
+  }).join(''));
 }
 
 /* ── Contact form handler (used by about.html) ────────────── */

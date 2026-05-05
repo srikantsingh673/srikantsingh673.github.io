@@ -89,7 +89,7 @@ Tradeoff: slower and less BLEU-optimized than dedicated NMT systems.
 
 ## Results
 
-- Fully local dubbing pipeline supporting **11+ languages**
+- Fully local dubbing pipeline supporting **9+ languages**
 - Eliminates Whisper hallucination issues using **multi-layer filtering**
 - Improves subtitle timing alignment via **duration-constrained translation**
 - Achieves **~85–92% speaker similarity** with minimal reference audio
