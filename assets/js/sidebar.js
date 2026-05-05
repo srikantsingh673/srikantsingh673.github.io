@@ -40,6 +40,9 @@ const SIDEBAR_HTML = `
     <a class="social__link" href="#" title="Google Scholar">
       <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 7.5L0 3l8-3 8 3-8 4.5zM3 5.3V10c0 1.1 2.2 2.5 5 2.5s5-1.4 5-2.5V5.3L8 8 3 5.3z"/></svg>
     </a>
+    <a class="social__link" href="https://orcid.org/0009-0009-2179-6558" target="_blank" title="ORCID">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM5.5 4.5a.75.75 0 110 1.5.75.75 0 010-1.5zM5 7h1v5H5zm2.5 0H9c1.657 0 2.5 1.119 2.5 2.5S10.657 12 9 12H7.5V7zm1 4.5H9c.828 0 1.5-.672 1.5-1.5S9.828 8.5 9 8.5h-.5v3z"/></svg>
+    </a>
   </div>
 
   <div class="sidebar__footer">© 2025 Srikant</div>

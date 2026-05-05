@@ -1,24 +1,22 @@
 [
   {
-    "title": "Few-Shot Named Entity Recognition for Low-Resource South Asian Languages via Cross-Lingual Transfer",
-    "venue": "Annual Meeting of the Association for Computational Linguistics (ACL 2024)",
-    "date": "2024-07-15",
+    "title": "Comparative Analysis of Python’s Role in AI and Machine Learning",
+    "venue": "International Journal of Research in Engineering, Science and Management (IJRESM)",
+    "date": "2025-02-19",
     "status": "published",
-    "abstract": "We present a novel few-shot approach to NER for low-resource South Asian languages that combines cross-lingual transfer from multilingual BERT with targeted data augmentation, achieving state-of-the-art F1 on Hindi, Bengali, and Tamil with as few as 50 labelled sentences per language.",
-    "tags": ["NLP", "NER", "Low-Resource", "Cross-Lingual"],
-    "file": "content/research/low-resource-ner.md",
-    "paper_url": "#",
-    "code_url": "https://github.com/srikant-siddhiyoga/low-resource-ner"
+    "abstract": "The rapid advancement of Artificial Intelligence (AI) and Machine Learning (ML) has led to the widespread adoption of various programming languages. Among them, Python has emerged as the dominant choice due to its extensive libraries, ease of use, and strong community support.",
+    "tags": ["Python", "AI", "Machine Learning", "Programming Languages"],
+    "file": "content/research/python-in-ai-ml.md",
+    "paper_url": "https://journal.ijresm.com/index.php/ijresm/article/view/3219"
   },
   {
-    "title": "Empirical Analysis of API Gateway Design Patterns in High-Throughput Python Microservice Environments",
+    "title": "Benchmarking Python–Rust Integration for High-Performance Computing Tasks",
     "venue": "Under Review — IEEE Transactions on Software Engineering",
-    "date": "2025-02-28",
+    "date": "2026-05-25",
     "status": "review",
-    "abstract": "An empirical study benchmarking five common API gateway design patterns — reverse proxy, sidecar, BFF, service mesh, and API composition — across latency, failure-recovery, and developer-experience dimensions in Python-based microservice deployments at 100–5000 req/s.",
-    "tags": ["Microservices", "System Design", "API Gateway", "Python"],
-    "file": "content/research/api-gateway-patterns.md",
-    "paper_url": "#",
-    "code_url": "https://github.com/srikant-siddhiyoga/api-gateway-patterns"
+    "abstract": "High-performance computing (HPC) requirements have dramatically increased in recent years for a wide range of tasks, including data analytics, machine learning and system optimization. Although Python is a favored language in science and analysis, its dynamic features can cause performance bottlenecks. On the other hand, Rust is a new systems language that guarantees memory safety while offering near-native execution performance, and as such is a prime contender for high-performance applications. In this paper we conduct a benchmarking study of Python-Rust interoperability: ",
+    "tags": ["Python", "Rust", "High-Performance Computing", "Benchmarking"],
+    "file": "content/research/python-rust-integration.md",
+    "paper_url": "#"
   }
 ]

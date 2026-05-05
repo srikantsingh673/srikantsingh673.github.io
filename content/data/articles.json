@@ -1,16 +1,16 @@
 [
   {
-    "title": "Building a Production-Ready RAG System in Python: Beyond the Tutorial",
-    "excerpt": "Most RAG tutorials get you to a working demo in 50 lines. This article covers what comes next — chunking strategies, retrieval quality, reranking, latency budgets, and the failure modes nobody warns you about.",
-    "date": "2025-03-10",
-    "tags": ["RAG", "NLP", "FastAPI", "Python"],
-    "file": "content/articles/production-rag.md"
+    "title": "Run Linux on Windows Like a Pro — No Dual Boot, No VM!",
+    "excerpt": "Have you ever wanted to run Linux on your Windows machine but didn’t want the hassle of dual-booting or setting up a virtual machine? Thanks to Windows Subsystem for Linux (WSL), you can now install and run a full-fledged Linux environment right inside Windows",
+    "date": "2025-02-08",
+    "tags": ["WSL", "Linux", "Windows"],
+    "file": "content/articles/run-linux-on-windows.md"
   },
   {
-    "title": "Django vs FastAPI: A Practical Decision Framework",
-    "excerpt": "Both Django and FastAPI are excellent Python web frameworks, but they optimise for different things. Here is the framework I use to choose between them based on the specific constraints of each project.",
-    "date": "2025-01-18",
-    "tags": ["Django", "FastAPI", "Backend", "Python"],
-    "file": "content/articles/django-vs-fastapi.md"
+    "title": "Is Django Still Relevant in 2025? The Pros and Cons of Python’s Top Web Framework",
+    "excerpt": "Django remains one of Python’s most powerful and reliable web frameworks, continuously proving its relevance in modern web development. Known for its secure, scalable, and maintainable architecture, Django excels in rapidly building robust applications with built-in support for authentication, ORM, and an extensive ecosystem of reusable components",
+    "date": "2025-02-01",
+    "tags": ["Python", "Django", "ORM", "web development"],
+    "file": "content/articles/django-in-2025.md"
   }
 ]
