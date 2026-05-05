@@ -12,7 +12,7 @@
       "ollama"
     ],
     "status": "Production",
-    "image": "assets/images/project-nlp.svg",
+    "image": "assets/images/dubbing.png",
     "file": "content/projects/multilingual-dubbing.md",
     "github": "https://github.com/srikant-siddhiyoga/multilingual-nlp-pipeline"
   },
@@ -28,7 +28,7 @@
       "PostgreSQL"
     ],
     "status": "Production",
-    "image": "assets/images/project-microservices.svg",
+    "image": "assets/images/yogify.png",
     "file": "content/projects/whatsapp-automation.md",
     "github": "https://github.com/srikant-siddhiyoga/whatsapp-automation"
   },
@@ -45,7 +45,7 @@
       "RAG"
     ],
     "status": "Production",
-    "image": "assets/images/project-ai.svg",
+    "image": "assets/images/rag-chatbot.png",
     "file": "content/projects/rag-knowledge-base.md",
     "github": "https://github.com/srikant-siddhiyoga/rag-knowledge-base"
   },
@@ -62,7 +62,7 @@
       "ffmpeg"
     ],
     "status": "Production",
-    "image": "assets/images/project-ai.svg",
+    "image": "assets/images/streamveda.png",
     "file": "content/projects/streamveda.md",
     "github": "https://github.com/srikant-siddhiyoga/streamveda"
   },
@@ -79,7 +79,7 @@
       "PostgreSQL"
     ],
     "status": "Production",
-    "image": "assets/images/project-ai.svg",
+    "image": "assets/images/meetly.png",
     "file": "content/projects/meetly.md",
     "github": "https://github.com/srikant-siddhiyoga/meetly"
   },
@@ -94,7 +94,7 @@
       "PostgreSQL"
     ],
     "status": "Production",
-    "image": "assets/images/project-ai.svg",
+    "image": "assets/images/auto-db.png",
     "file": "content/projects/autodb-backup.md",
     "github": "https://github.com/srikant-siddhiyoga/autodb-backup"
   },
@@ -110,7 +110,7 @@
       "MySQL"
     ],
     "status": "Staging",
-    "image": "assets/images/project-ai.svg",
+    "image": "assets/images/zonse-algo.png",
     "file": "content/projects/zonse-algo.md",
     "github": "https://github.com/srikant-siddhiyoga/zonse-algo"
   }
