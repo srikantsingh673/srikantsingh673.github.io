@@ -1,7 +1,7 @@
 ---
 title: Zonse Algo: Algorithmic Trading & Market Simulation Platform
 date: 2024
-github: https://github.com/srikant-siddhiyoga/zonse-algo
+github: #
 status: Staging
 ---
 

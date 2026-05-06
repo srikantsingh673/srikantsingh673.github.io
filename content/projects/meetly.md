@@ -1,7 +1,7 @@
 ---
 title: Meetly: Video Conferencing & Appointment Booking Platform
 date: Jan 2025
-github: https://github.com/srikant-siddhiyoga/meetly
+github: #
 status: Production
 ---
 

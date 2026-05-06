@@ -14,7 +14,7 @@
     "status": "Production",
     "image": "assets/images/dubbing.png",
     "file": "content/projects/multilingual-dubbing.md",
-    "github": "https://github.com/srikant-siddhiyoga/multilingual-nlp-pipeline"
+    "github": "#"
   },
   {
     "title": "WhatsApp Automation & Engagement Platform",
@@ -30,7 +30,7 @@
     "status": "Production",
     "image": "assets/images/yogify.png",
     "file": "content/projects/whatsapp-automation.md",
-    "github": "https://github.com/srikant-siddhiyoga/whatsapp-automation"
+    "github": "#"
   },
   {
     "title": "RAG-Powered Knowledge Base Chatbot",
@@ -47,7 +47,7 @@
     "status": "Production",
     "image": "assets/images/rag-chatbot.png",
     "file": "content/projects/rag-knowledge-base.md",
-    "github": "https://github.com/srikant-siddhiyoga/rag-knowledge-base"
+    "github": "#"
   },
   {
     "title": "StreamVeda: Youtube Video Streaming Platform",
@@ -64,7 +64,7 @@
     "status": "Production",
     "image": "assets/images/streamveda.png",
     "file": "content/projects/streamveda.md",
-    "github": "https://github.com/srikant-siddhiyoga/streamveda"
+    "github": "#"
   },
   {
     "title": "Meetly: Video Conferencing & Appointment Booking Platform",
@@ -81,7 +81,7 @@
     "status": "Production",
     "image": "assets/images/meetly.png",
     "file": "content/projects/meetly.md",
-    "github": "https://github.com/srikant-siddhiyoga/meetly"
+    "github": "#"
   },
   {
     "title": "AutoDB Backup: Automated Database Backup System",
@@ -96,7 +96,7 @@
     "status": "Production",
     "image": "assets/images/auto-db.png",
     "file": "content/projects/autodb-backup.md",
-    "github": "https://github.com/srikant-siddhiyoga/autodb-backup"
+    "github": "#"
   },
   {
     "title": "Zonse Algo: Online Trading & Market Simulation Platform",
@@ -112,6 +112,6 @@
     "status": "Staging",
     "image": "assets/images/zonse-algo.png",
     "file": "content/projects/zonse-algo.md",
-    "github": "https://github.com/srikant-siddhiyoga/zonse-algo"
+    "github": "#"
   }
 ]

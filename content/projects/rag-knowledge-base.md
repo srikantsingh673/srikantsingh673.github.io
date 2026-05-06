@@ -1,7 +1,7 @@
 ---
 title: RAG-Powered Knowledge Base Chatbot
 date: Sep 2024
-github: https://github.com/your-repo-link
+github: #
 status: Production
 ---
 

@@ -205,7 +205,12 @@ async function loadPost() {
         const cls = { published: 'tag-green', review: 'tag-amber', preprint: 'tag-blue' }[meta.status] || '';
         items.push(`<span class="tag ${cls}">${meta.status}</span>`);
       }
-      if (meta.github) items.push(`<a href="${meta.github}" target="_blank" class="btn btn-outline" style="font-size:0.75rem;padding:0.3em 0.85em;">GitHub ↗</a>`);
+      if (meta.github) items.push(`<a href="javascript:void(0)" 
+       onclick="event.preventDefault();" 
+       class="btn btn-outline disabled-link"
+       style="font-size:0.75rem;padding:0.3em 0.85em;cursor:not-allowed;opacity:0.6;">
+       GitHub🔒
+    </a>`);
       if (meta.paper_url && meta.paper_url !== '#') items.push(`<a href="${meta.paper_url}" target="_blank" class="btn btn-dark" style="font-size:0.75rem;padding:0.3em 0.85em;">PDF ↗</a>`);
       metaEl.innerHTML = items.join('');
     }
@@ -319,7 +324,7 @@ function renderResearchList(items, el) {
 window.handleContact = async function handleContact(e) {
   e.preventDefault();
   const form = document.getElementById('contact-form');
-  const btn  = document.getElementById('cf-btn');
+  const btn = document.getElementById('cf-btn');
   const status = document.getElementById('cf-status');
 
   btn.disabled = true;

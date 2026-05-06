@@ -1,7 +1,7 @@
 ---
 title: AutoDB Backup: Automated Database Backup System
 date: Jan 2024
-github: https://github.com/srikant-siddhiyoga/autodb-backup
+github: #
 status: Production
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: StreamVeda: YouTube Video Streaming Platform
 date: Jan 2025
-github: https://github.com/srikant-siddhiyoga/streamveda
+github: #
 status: Production
 ---
 
